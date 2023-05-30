@@ -1,5 +1,3 @@
-import './App.css';
-
 import Routers from './routes'
 
 import {setAuthToken} from './helpers/setAuthToken'

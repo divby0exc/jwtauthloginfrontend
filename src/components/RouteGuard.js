@@ -1,5 +1,5 @@
-import React from "react";
-import { Route, Redirect } from 'react-router-dom';
+import React from 'react';
+import { Route, Redirect } from 'react-router';
 
 const RouteGuard = ({ component: Component, ...rest }) => {
 
@@ -8,20 +8,20 @@ const RouteGuard = ({ component: Component, ...rest }) => {
 
         //check user has JWT token
         localStorage.getItem("token") ? flag=true : flag=false
-
+        
         return flag
     }
 
     return (
         <Route {...rest}
-        render={props => (
-            hasJWT() ?
-            <Component {...props} />
-            :
-            <Redirect to={{ pathname: './login' }} />
-        )}
+            render={props => (
+                hasJWT() ?
+                    <Component {...props} />
+                    :
+                    <Redirect to={{ pathname: '/login' }} />
+            )}
         />
     );
 };
 
-export default RouteGuard
+export default RouteGuard;
